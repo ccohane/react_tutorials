@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+/**
+ * 
+ * @param {Props inlcude Value and Onclick which are being passed in from the Board Class} props 
+ * This function creates a square represented by a button 
+ * When the button is pressed it calls the onclick function from Board
+ * and passes in value from board
+ */
 function Square(props) {
     return (
       <button className="square" onClick={props.onClick}>
