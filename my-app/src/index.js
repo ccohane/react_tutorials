@@ -142,6 +142,7 @@ function Square(props) {
       const winner = calculateWinner(current.squares);
       //moves returns a list of buttons that will call jumpTo which changes the history of sqaures
       const moves = history.map((step, move) => {
+          // the ? is when move would be a conditional and if true the first statement is called else the second statement 
         const desc = move ?
           'Go to move #' + move :
           'Go to game start';
@@ -151,14 +152,17 @@ function Square(props) {
           </li>
         );
       });
-  
+      
+      //Status is an html element which is called in the return class below
       let status;
       if (winner) {
         status = "Winner: " + winner;
       } else {
+          //if this.xIsNext is true then X else O
         status = "Next player: " + (this.state.xIsNext ? "X" : "O");
       }
   
+      //Returns a board and passes squares and onClick as probs to Board class 
       return (
         <div className="game">
           <div className="game-board">
@@ -177,10 +181,14 @@ function Square(props) {
   }
   
   // ========================================
-  
+  //ReactDOM renders what is rendered in Game class which renders what is in Board Class and Square class
   ReactDOM.render(<Game />, document.getElementById("root"));
   
+  /**
+   * calculate winner takes in the squares and determines if there is a winner 
+   */
   function calculateWinner(squares) {
+      // lines is all the winning line formation 
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -191,6 +199,7 @@ function Square(props) {
       [0, 4, 8],
       [2, 4, 6]
     ];
+    //Check to see if there are in winning squares and return X or O or null 
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
