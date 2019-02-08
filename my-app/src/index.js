@@ -15,8 +15,18 @@ function Square(props) {
       </button>
     );
   }
-  
+  /**
+   * The Class Board is a react component and renders a board of 9 Squares
+   * It has two main functions renderSquare and render
+   */
   class Board extends React.Component {
+      /**
+       * 
+       * @param {i represents the location of the square and is passed in in the render function} i 
+       * this.props is referring to the Game class in the return statement 
+       * and the values being passed to Board
+       * 
+       */
     renderSquare(i) {
       return (
         <Square
@@ -25,7 +35,10 @@ function Square(props) {
         />
       );
     }
-  
+  /**
+   * The render Statement renders the board and all 9 squares 
+   * the divs have classNames of board-row which refers the Custom CSS in index CSS
+   */
     render() {
       return (
         <div>
